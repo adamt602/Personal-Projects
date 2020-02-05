@@ -2,9 +2,11 @@ package com.gmail.adamt602.convertFractions;
 
 public class Fraction {
 	//Global private variables
-	private double newNumerator = 0;
-	private double newDenominator = 0;
-	
+	private double numerator = 0;
+	private double denominator = 0;
+	private double newNumerator;
+	private double newDenominator;
+	private String fraction = null;
 	
 	//default constructor 
 	public Fraction() {
@@ -24,32 +26,69 @@ public class Fraction {
 		//Finds position of the /
 		int position = Fraction.indexOf("/");
 		
-		//Prints the position of /
-		System.out.println(position);
-		
 		//makes a sub string from the original string and stores it in numerator 
-		String numerator = Fraction.substring(0, position);
+		String numeratorString = Fraction.substring(0, position);
 		
 		//makes a sub string from the original string and stores it in denominator
-		String denominator = Fraction.substring(position + 1, Fraction.length());
+		String denominatorString = Fraction.substring(position + 1, Fraction.length());
 		
 		//converts the strings into double type values 
-		newNumerator = Double.parseDouble(numerator);
-		newNumerator = Double.parseDouble(denominator);
-		
-		
+		setnumerator(Double.parseDouble(numeratorString));
+		setdenominator(Double.parseDouble(denominatorString));
 		
 	}
 	
-	public double getnumerator(){
+	private String gcdCalculation() {
+		int gcd = GCD.gcd((int) getNumerator(), (int)getDenominator());
+		setNewNumerator(getNumerator() / gcd);
+		System.out.println(gcd);
+		setNewDenominator(getDenominator() / gcd);
+		return "" + getNewNumerator()+  "/" +  getNewDenominator();
+	}
+	
+	public double getNumerator(){
 		//returns the numerator 
+		return numerator;
+	}
+	
+	public double getDenominator() {
+		//returns the denominator
+		return denominator;
+	}
+	
+	public double getNewNumerator() {
 		return newNumerator;
 	}
 	
-	public double getdenominator() {
-		//returns the denominator
-		return newNumerator;
+	public double getNewDenominator() {
+		return newDenominator;
 	}
+	
+	public String getFraction() {
+		
+		return gcdCalculation();
+				
+	}
+	
+	public void setnumerator(double numerator) {
+		this.numerator = numerator;
+	}
+	
+	public void setdenominator(double denominator) {
+		this.denominator = denominator;
+	}
+	
+	public void setNewNumerator(double newNumerator) {
+		this.newNumerator = newNumerator;
+	}
+	
+	public void setNewDenominator(double newDenominator) {
+		this.newDenominator = newDenominator;
+	}
+	
+	
+	
+	
 	
 	
 

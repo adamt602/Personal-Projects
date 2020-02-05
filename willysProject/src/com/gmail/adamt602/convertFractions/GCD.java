@@ -11,7 +11,7 @@ public class GCD {
 	
 	
 	
-	public static void gcd(int num1, int num2) {
+	public static int gcd(int num1, int num2) {
 		int gcd = 1;
 		
 		for(int i = 1; i <= num1 && i<= num2; i++) {
@@ -19,7 +19,8 @@ public class GCD {
 				gcd = i;
 			}
 		}
-		System.out.printf("GCD of %d and %d is: %d", num1, num2, gcd);
+		//System.out.printf("GCD of %d and %d is: %d", num1, num2, gcd);
+		return gcd;
 		
 	}
 

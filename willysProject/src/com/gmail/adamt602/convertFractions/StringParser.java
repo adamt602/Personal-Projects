@@ -4,14 +4,9 @@ public class StringParser {
 	
 	public static void main(String[] args) {
 		
-		Fraction f = new Fraction("55/43"); 
+		Fraction f = new Fraction("5/10"); 
 		
-		//Displays the double type values 
-		System.out.println("The numerator is: " + f.getnumerator()
-		+ "\nThe denominator is: " + f.getdenominator());
-		
-		//display GCD
-		GCD.gcd(3, 6);
+		System.out.println(f.getFraction());
 	}
 
 
